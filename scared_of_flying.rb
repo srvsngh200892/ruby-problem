@@ -57,11 +57,11 @@ def calculate_distance(location_a, location_b, cities)
   vector2 = Vector[*array2]
   vector1_dot_vector2 = vector1.inner_product(vector2)
   angle = Math::acos(vector1_dot_vector2)
-  arc = convert_to_degree(angle) / 360.0 * EARTH_CIRCUMFERENCE
-  arc.round
+  distance = convert_to_degree(angle) / 360.0 * EARTH_CIRCUMFERENCE
+  distance.round
 end
 
-def dijkstra(source, edge, n)
+def calculate_shortest_path(source, edge, n)
   min_distance = []
   for i in 0..(n-1)
     min_distance[i] = INFINITY
@@ -115,7 +115,7 @@ while (user_input = gets.split.map(&:to_i))
   for i in 0..(q-1)
     queries = gets.chomp
     query1 , query2 = queries.split(' ')
-    min_distance_arrya = dijkstra(city_name[query1], edge, n)
+    min_distance_arrya = calculate_shortest_path(city_name[query1], edge, n)
     result = city_name[query2].nil? ? INFINITY : min_distance_arrya[city_name[query2]]
     if query1.to_s == query2.to_s
       puts 'No Shortest path avaiable between same city enter valid city name'
