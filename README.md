@@ -66,4 +66,7 @@ no route exists
 Baghdad Frankfurt
  <br />
 12023km
+<br/>
+<br/>
+0 0 0
 
