@@ -1,6 +1,5 @@
 require 'matrix'
 require 'pqueue'
-require 'pry'
 
 PI_VALUE = 3.141592653589793
 EARTH_RADIUS = 6378.0
@@ -86,16 +85,13 @@ def calculate_shortest_path(source, edge, n)
   min_distance
 end
 
-edge = []
+cities = {}
 no_of_case = 1
 while (user_input = gets.split.map(&:to_i))
   break if user_input[0] == 0
   n, m , q = user_input
-  cities = {}
   city_name = {}
-  for i in 0..n
-    edge[i].clear if edge[i].class == 'Array'
-  end
+  edge = []
   for i in 0..(n-1)
     city_lat_lng = gets.chomp
     name, lat, lng = city_lat_lng.split(' ')
